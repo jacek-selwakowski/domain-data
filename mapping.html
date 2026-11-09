@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+window.onerror=function(msg,src,line,col,err){window.parent.postMessage({type:'app-error',message:msg,source:src,lineno:line,colno:col,stack:err&&err.stack||''},'*');};
+window.onunhandledrejection=function(e){window.parent.postMessage({type:'app-error',message:'Unhandled promise rejection: '+(e.reason&&e.reason.message||e.reason||'unknown'),stack:e.reason&&e.reason.stack||''},'*');};
+window.addEventListener('error',function(e){var t=e&&e.target;if(t&&t!==window&&t.tagName==='SCRIPT'){var u=t.src||'';window.parent.postMessage({type:'app-error',message:'Failed to load script'+(u?': '+u:' (inline module)'),source:u},'*');}},true);
+(function(){var _f=window.fetch;window.fetch=function(){var a=arguments,u=typeof a[0]==='string'?a[0]:(a[0]&&a[0].url)||'';var p=_f.apply(this,a);p.then(function(r){if(r.status===500){r.clone().text().then(function(b){window.parent.postMessage({type:'fetch-error',url:u,status:500,body:b},'*');}).catch(function(){window.parent.postMessage({type:'fetch-error',url:u,status:500,body:''},'*');});}}).catch(function(e){window.parent.postMessage({type:'fetch-error',url:u,status:0,body:e.message||'fetch failed'},'*');});};return p;};})();
+</script>
+<script src="https://builder.puter.com/runtime.js" defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mapping Studio — Survey Domain Studio</title>
+<meta name="theme-color" content="#4338ca">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter','system-ui','sans-serif'], mono: ['JetBrains Mono','ui-monospace','monospace'] } } } };
+</script>
+<link rel="stylesheet" href="mapping/styles.css">
+<style type="text/tailwindcss">
+.mbtn { @apply inline-flex items-center justify-center gap-2 h-8 px-3 rounded-lg border border-gray-200 bg-white text-[13px] font-medium text-gray-700 hover:bg-gray-50 whitespace-nowrap transition-colors disabled:opacity-45 disabled:pointer-events-none; }
+.mbtn-primary { @apply bg-indigo-700 border-indigo-700 text-white hover:bg-indigo-800; }
+.mbtn-sm { @apply h-7 px-2 text-xs; }
+.micon { @apply inline-flex items-center justify-center w-8 h-8 rounded-lg text-gray-600 hover:bg-gray-100 transition-colors disabled:opacity-35 disabled:pointer-events-none; }
+.minput { @apply h-8 w-full border border-gray-200 rounded-lg px-2.5 text-[13px] bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500; }
+</style>
+    <!-- puter-pwa: generated, do not edit -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon-180.png">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Survey">
+    <!-- /puter-pwa -->
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans antialiased">
+<div id="app" class="h-[100dvh] flex flex-col">
+
+  <!-- Top bar -->
+  <header class="h-14 shrink-0 bg-white border-b border-gray-200 flex items-center gap-2 px-3 sm:px-4">
+    <a href="index.html" class="micon" title="Back to Survey Domain Studio"><i data-lucide="arrow-left" class="w-4 h-4"></i></a>
+    <div class="flex items-center gap-2.5 min-w-0">
+      <div class="w-8 h-8 rounded-lg bg-indigo-700 text-white flex items-center justify-center shrink-0">
+        <svg viewBox="0 0 24 24" class="w-4.5 h-4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21v-7"/><path d="M4 10V3"/><path d="M12 21v-9"/><path d="M12 8V3"/><path d="M20 21v-5"/><path d="M20 12V3"/><path d="M1 14h6"/><path d="M9 8h6"/><path d="M17 16h6"/></svg>
+      </div>
+      <div class="min-w-0 hidden sm:block">
+        <input id="projectName" class="name-input text-sm font-semibold bg-transparent rounded-md px-1.5 py-0.5 -ml-1.5 w-56 truncate" value="Untitled mapping" aria-label="Mapping name">
+        <div id="saveStatus" class="text-[11px] text-gray-400 px-0.5 leading-none -mt-0.5">Not saved</div>
+      </div>
+    </div>
+
+    <div class="mx-auto seg" role="tablist">
+      <button data-view="map" class="seg-btn" aria-selected="true"><i data-lucide="waypoints" class="w-4 h-4"></i><span class="hidden sm:inline">Map</span></button>
+      <button data-view="table" class="seg-btn"><i data-lucide="table" class="w-4 h-4"></i><span class="hidden sm:inline">Migration table</span></button>
+    </div>
+
+    <div class="flex items-center gap-1">
+      <button id="undoBtn" class="micon hidden md:inline-flex" title="Undo (Ctrl+Z)"><i data-lucide="undo-2" class="w-4 h-4"></i></button>
+      <button id="redoBtn" class="micon hidden md:inline-flex" title="Redo (Ctrl+Shift+Z)"><i data-lucide="redo-2" class="w-4 h-4"></i></button>
+      <div class="w-px h-6 bg-gray-200 mx-1 hidden md:block"></div>
+      <button id="suggestBtn" class="mbtn hidden lg:inline-flex"><i data-lucide="sparkles" class="w-4 h-4"></i>Suggest links</button>
+      <button id="exportBtn" class="mbtn mbtn-primary"><i data-lucide="download" class="w-4 h-4"></i><span class="hidden sm:inline">Export</span></button>
+      <button id="moreBtn" class="micon" title="More"><i data-lucide="ellipsis" class="w-4 h-4"></i></button>
+    </div>
+  </header>
+
+  <!-- Stats strip -->
+  <div id="stats" class="shrink-0 bg-white border-b border-gray-200 px-3 sm:px-4 h-10 flex items-center gap-5 text-xs text-gray-500 overflow-x-auto no-scrollbar"></div>
+
+  <!-- Mobile pane switch -->
+  <div id="mobileTabs" class="md:hidden shrink-0 bg-white border-b border-gray-200 px-3 py-2 flex gap-2">
+    <button data-pane="src" class="seg-btn flex-1 justify-center border border-gray-200 rounded-lg" aria-selected="true">Source</button>
+    <button data-pane="tgt" class="seg-btn flex-1 justify-center border border-gray-200 rounded-lg">Target</button>
+  </div>
+
+  <main class="flex-1 min-h-0 flex relative">
+    <!-- Map view -->
+    <section id="mapView" class="flex-1 min-w-0 flex relative">
+      <div id="mapArea" class="flex-1 min-w-0 flex relative">
+        <div class="panel flex-1 min-w-0 flex flex-col" data-side="src" id="srcPanel"></div>
+        <div id="gutter" class="hidden md:block w-[120px] lg:w-[150px] shrink-0"></div>
+        <div class="panel flex-1 min-w-0 flex flex-col" data-side="tgt" id="tgtPanel"></div>
+        <svg id="wires" class="hidden md:block absolute inset-0 w-full h-full pointer-events-none overflow-visible"></svg>
+      </div>
+      <aside id="inspector" class="inspector hidden"></aside>
+    </section>
+
+    <!-- Table view -->
+    <section id="tableView" class="flex-1 min-w-0 flex-col hidden"></section>
+  </main>
+</div>
+
+<div id="toasts" class="fixed bottom-4 left-1/2 -translate-x-1/2 z-[80] flex flex-col items-center gap-2 pointer-events-none"></div>
+
+<script type="module" src="mapping/app.js"></script>
+</body>
+</html>

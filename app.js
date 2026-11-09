@@ -246,6 +246,7 @@ class App {
           </div>
           <div class="flex gap-2">
             <button class="btn btn-ghost btn-sm" data-view="${esc(e.id)}"><i data-lucide="eye" class="w-3.5 h-3.5"></i>View model</button>
+            <button class="btn btn-ghost btn-sm" data-map="${esc(e.id)}"><i data-lucide="waypoints" class="w-3.5 h-3.5"></i>Map</button>
             <button class="btn btn-ghost btn-sm" data-editmeta="${esc(e.id)}"><i data-lucide="pencil" class="w-3.5 h-3.5"></i>Rename</button>
             <button class="btn btn-danger btn-sm" data-del="${esc(e.id)}"><i data-lucide="trash-2" class="w-3.5 h-3.5"></i>Delete</button>
           </div>
@@ -260,6 +261,10 @@ class App {
       </div>`).join('');
 
     $$('#systemsList [data-view]').forEach(b => b.onclick = () => this.openSystem(b.getAttribute('data-view')));
+    $$('#systemsList [data-map]').forEach(b => b.onclick = () => {
+      sessionStorage.setItem('sds.mapping.pick', b.getAttribute('data-map'));
+      window.location.href = 'mapping.html';
+    });
     $$('#systemsList [data-editmeta]').forEach(b => b.onclick = async () => {
       const sys = await store.loadSystem(b.getAttribute('data-editmeta'));
       if (sys) { this.currentSystem = sys; this.modelView.setSystem(sys); this.editor.editSystem(sys); }

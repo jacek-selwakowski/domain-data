@@ -1,0 +1,141 @@
+[
+  {
+    "count": 3,
+    "ResponseType": "YES_NO",
+    "ResponseOptions": [
+      { "ResponseCode": "Y", "ResponseDescription": "Yes", "ResponseDescriptionNorm": "yes" },
+      { "ResponseCode": "N", "ResponseDescription": "No", "ResponseDescriptionNorm": "no" }
+    ],
+    "QuestionSet": [
+      { "QuestionCode": "KYC_PZK_001", "QuestionLabel": "Is the client a politically exposed person (PEP)?", "QuestionLabelNorm": "politically exposed person pep status", "SurveyType": ["RETAIL", "PZK"], "PersonalContext": "true", "SurveyCode": "KYC_PZK" },
+      { "QuestionCode": "KYC_PZK_002", "QuestionLabel": "Is the client a family member or close associate of a PEP?", "QuestionLabelNorm": "family member close associate of pep", "SurveyType": ["RETAIL", "PZK"], "PersonalContext": "true", "SurveyCode": "KYC_PZK" },
+      { "QuestionCode": "KYC_RET_010", "QuestionLabel": "Does the client act on their own behalf?", "QuestionLabelNorm": "acts on own behalf own account", "SurveyType": ["RETAIL"], "PersonalContext": "true", "SurveyCode": "KYC_RET" }
+    ]
+  },
+  {
+    "count": 2,
+    "ResponseType": "SINGLE",
+    "ResponseOptions": [
+      { "ResponseCode": "SAL", "ResponseDescription": "Salary", "ResponseDescriptionNorm": "employment salary income" },
+      { "ResponseCode": "BUS", "ResponseDescription": "Business activity", "ResponseDescriptionNorm": "own business activity income" },
+      { "ResponseCode": "PEN", "ResponseDescription": "Pension", "ResponseDescriptionNorm": "retirement pension benefits" },
+      { "ResponseCode": "INH", "ResponseDescription": "Inheritance", "ResponseDescriptionNorm": "inheritance donation" },
+      { "ResponseCode": "SAV", "ResponseDescription": "Savings", "ResponseDescriptionNorm": "accumulated savings" },
+      { "ResponseCode": "OTH", "ResponseDescription": "Other", "ResponseDescriptionNorm": "other" }
+    ],
+    "QuestionSet": [
+      { "QuestionCode": "KYC_SOF_001", "QuestionLabel": "Primary source of funds", "QuestionLabelNorm": "source of funds origin", "SurveyType": ["RETAIL", "PZK"], "SurveyCode": "KYC_SOF", "Notes": ["Mandatory for new accounts"] },
+      { "QuestionCode": "KYC_SOF_002", "QuestionLabel": "Source of wealth", "QuestionLabelNorm": "source of wealth origin", "SurveyType": ["PZK"], "SurveyCode": "KYC_SOF" }
+    ]
+  },
+  {
+    "count": 1,
+    "ResponseType": "SINGLE",
+    "ResponseOptions": [
+      { "ResponseCode": "T1", "ResponseDescription": "Up to 10,000 PLN" },
+      { "ResponseCode": "T2", "ResponseDescription": "10,001 – 50,000 PLN" },
+      { "ResponseCode": "T3", "ResponseDescription": "50,001 – 200,000 PLN" },
+      { "ResponseCode": "T4", "ResponseDescription": "Above 200,000 PLN" }
+    ],
+    "QuestionSet": [
+      { "QuestionCode": "KYC_PZK_010", "QuestionLabel": "Expected monthly turnover on the account", "QuestionLabelNorm": "expected monthly account turnover", "SurveyType": ["RETAIL", "PZK"], "SurveyCode": "KYC_PZK" }
+    ]
+  },
+  {
+    "count": 1,
+    "ResponseType": "MULTI",
+    "ResponseOptions": [
+      { "ResponseCode": "SAV", "ResponseDescription": "Savings", "ResponseDescriptionNorm": "savings deposits" },
+      { "ResponseCode": "PAY", "ResponseDescription": "Everyday payments", "ResponseDescriptionNorm": "daily transactions payments" },
+      { "ResponseCode": "CRD", "ResponseDescription": "Credit products", "ResponseDescriptionNorm": "loans credit" },
+      { "ResponseCode": "INV", "ResponseDescription": "Investments", "ResponseDescriptionNorm": "investment" },
+      { "ResponseCode": "FX", "ResponseDescription": "Foreign exchange", "ResponseDescriptionNorm": "currency exchange" },
+      { "ResponseCode": "BIZ", "ResponseDescription": "Business settlements", "ResponseDescriptionNorm": "company settlements" }
+    ],
+    "QuestionSet": [
+      { "QuestionCode": "KYC_RET_020", "QuestionLabel": "Purpose of the business relationship", "QuestionLabelNorm": "purpose of account relationship", "SurveyType": ["RETAIL", "SME-AGRO"], "SurveyCode": "KYC_RET" }
+    ]
+  },
+  {
+    "count": 1,
+    "ResponseType": "SINGLE",
+    "ResponseOptions": [
+      { "ResponseCode": "C0", "ResponseDescription": "None", "ResponseDescriptionNorm": "no cash low" },
+      { "ResponseCode": "C1", "ResponseDescription": "Below 25%", "ResponseDescriptionNorm": "low cash share" },
+      { "ResponseCode": "C2", "ResponseDescription": "25% – 50%", "ResponseDescriptionNorm": "medium cash share" },
+      { "ResponseCode": "C3", "ResponseDescription": "Above 50%", "ResponseDescriptionNorm": "high cash share" }
+    ],
+    "QuestionSet": [
+      { "QuestionCode": "KYC_SME_030", "QuestionLabel": "Share of cash transactions in turnover", "QuestionLabelNorm": "cash intensity share of cash", "SurveyType": ["SME-AGRO"], "SurveyCode": "KYC_SME" }
+    ]
+  },
+  {
+    "count": 1,
+    "ResponseType": "MULTI",
+    "ResponseOptions": [
+      { "ResponseCode": "PL", "ResponseDescription": "Poland", "ResponseDescriptionNorm": "domestic poland" },
+      { "ResponseCode": "EU", "ResponseDescription": "Other EU countries", "ResponseDescriptionNorm": "european union" },
+      { "ResponseCode": "US", "ResponseDescription": "United States", "ResponseDescriptionNorm": "north america united states" },
+      { "ResponseCode": "UK", "ResponseDescription": "United Kingdom", "ResponseDescriptionNorm": "united kingdom" },
+      { "ResponseCode": "HR", "ResponseDescription": "High-risk countries", "ResponseDescriptionNorm": "high risk jurisdiction" }
+    ],
+    "QuestionSet": [
+      { "QuestionCode": "KYC_CORPO_040", "QuestionLabel": "Countries of business operation", "QuestionLabelNorm": "geographic scope countries of activity", "SurveyType": ["CORPO", "SME-AGRO"], "SurveyCode": "KYC_CORPO" }
+    ]
+  },
+  {
+    "count": 3,
+    "ResponseType": "TEXT",
+    "ResponseOptions": [],
+    "QuestionSet": [
+      { "QuestionCode": "KYC_PZK_050", "QuestionLabel": "Employer name", "QuestionLabelNorm": "employer name", "SurveyType": ["RETAIL", "PZK"], "SurveyCode": "KYC_PZK" },
+      { "QuestionCode": "KYC_PZK_051", "QuestionLabel": "Occupation description", "QuestionLabelNorm": "occupation job title", "SurveyType": ["RETAIL", "PZK"], "SurveyCode": "KYC_PZK" },
+      { "QuestionCode": "KYC_CORPO_052", "QuestionLabel": "Description of business activity", "QuestionLabelNorm": "business activity description", "SurveyType": ["CORPO"], "SurveyCode": "KYC_CORPO" }
+    ]
+  },
+  {
+    "count": 1,
+    "ResponseType": "SINGLE",
+    "ResponseOptions": [
+      { "ResponseCode": "EMP", "ResponseDescription": "Employed", "ResponseDescriptionNorm": "employee" },
+      { "ResponseCode": "SELF", "ResponseDescription": "Self-employed", "ResponseDescriptionNorm": "entrepreneur self employed" },
+      { "ResponseCode": "RET", "ResponseDescription": "Retired", "ResponseDescriptionNorm": "pensioner retired" },
+      { "ResponseCode": "STU", "ResponseDescription": "Student", "ResponseDescriptionNorm": "student" },
+      { "ResponseCode": "UNE", "ResponseDescription": "Unemployed", "ResponseDescriptionNorm": "not working unemployed" }
+    ],
+    "QuestionSet": [
+      { "QuestionCode": "KYC_RET_070", "QuestionLabel": "Employment status", "QuestionLabelNorm": "professional employment status", "SurveyType": ["RETAIL"], "SurveyCode": "KYC_RET" }
+    ]
+  },
+  {
+    "count": 1,
+    "ResponseType": "SINGLE",
+    "ResponseOptions": [
+      { "ResponseCode": "SP", "ResponseDescription": "Sole proprietorship", "ResponseDescriptionNorm": "sole trader" },
+      { "ResponseCode": "LLC", "ResponseDescription": "Limited liability company", "ResponseDescriptionNorm": "limited liability company" },
+      { "ResponseCode": "JSC", "ResponseDescription": "Joint-stock company", "ResponseDescriptionNorm": "joint stock company" },
+      { "ResponseCode": "PART", "ResponseDescription": "Partnership", "ResponseDescriptionNorm": "partnership" },
+      { "ResponseCode": "COOP", "ResponseDescription": "Cooperative", "ResponseDescriptionNorm": "cooperative" },
+      { "ResponseCode": "FOUND", "ResponseDescription": "Foundation", "ResponseDescriptionNorm": "foundation association" }
+    ],
+    "QuestionSet": [
+      { "QuestionCode": "KYC_SME_080", "QuestionLabel": "Legal form of the entity", "QuestionLabelNorm": "entity legal form", "SurveyType": ["SME-AGRO", "CORPO"], "SurveyCode": "KYC_SME" }
+    ]
+  },
+  {
+    "count": 1,
+    "ResponseType": "ENTITY_KYC",
+    "ResponseOptions": [],
+    "QuestionSet": [
+      { "QuestionCode": "KYC_CORPO_060", "QuestionLabel": "Beneficial owner identification", "QuestionLabelNorm": "ultimate beneficial owner", "SurveyType": ["CORPO"], "SurveyCode": "KYC_CORPO" }
+    ]
+  },
+  {
+    "count": 1,
+    "ResponseType": "PERSON_KYC",
+    "ResponseOptions": [],
+    "QuestionSet": [
+      { "QuestionCode": "KYC_PZK_061", "QuestionLabel": "Proxy / attorney identification", "QuestionLabelNorm": "authorized representative proxy", "SurveyType": ["PZK"], "SurveyCode": "KYC_PZK" }
+    ]
+  }
+]

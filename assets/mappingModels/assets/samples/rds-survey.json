@@ -1,0 +1,119 @@
+[
+  {
+    "count": 4,
+    "ResponseType": "YES_NO",
+    "ResponseOptions": [
+      { "ResponseCode": 1, "ResponseDescription": "Tak / Yes", "ResponseDescriptionNorm": "yes", "ppRespCode": "T", "ResponseStart": "2016.07.17", "ResponseEnd": "" },
+      { "ResponseCode": 0, "ResponseDescription": "Nie / No", "ResponseDescriptionNorm": "no", "ppRespCode": "N", "ResponseStart": "2016.07.17", "ResponseEnd": "" }
+    ],
+    "QuestionSet": [
+      { "QuestionCode": "1001", "QuestionLabel": "Client holds a prominent public function (PEP)", "QuestionLabelNorm": "politically exposed person pep status", "pp_code_question": 501 },
+      { "QuestionCode": "1002", "QuestionLabel": "Client is related to a PEP", "QuestionLabelNorm": "family member close associate of pep", "pp_code_question": 502 },
+      { "QuestionCode": "1003", "QuestionLabel": "Transactions on behalf of a third party", "QuestionLabelNorm": "acts on behalf of third party", "pp_code_question": 503 },
+      { "QuestionCode": "1004", "QuestionLabel": "Uses cash in high volumes", "QuestionLabelNorm": "cash intensive high cash usage", "pp_code_question": 504 }
+    ]
+  },
+  {
+    "count": 1,
+    "ResponseType": "MULTI",
+    "ResponseOptions": [
+      { "ResponseCode": 10, "ResponseDescription": "Employment income", "ResponseDescriptionNorm": "employment salary income", "ppRespCode": "E", "ResponseStart": "2016.07.17", "ResponseEnd": "" },
+      { "ResponseCode": 11, "ResponseDescription": "Entrepreneurship", "ResponseDescriptionNorm": "own business activity income", "ppRespCode": "B", "ResponseStart": "2016.07.17", "ResponseEnd": "" },
+      { "ResponseCode": 12, "ResponseDescription": "Retirement benefits", "ResponseDescriptionNorm": "retirement pension benefits", "ppRespCode": "R", "ResponseStart": "2016.07.17", "ResponseEnd": "" },
+      { "ResponseCode": 13, "ResponseDescription": "Inheritance or gift", "ResponseDescriptionNorm": "inheritance donation", "ppRespCode": "I", "ResponseStart": "2016.07.17", "ResponseEnd": "" },
+      { "ResponseCode": 14, "ResponseDescription": "Sale of property", "ResponseDescriptionNorm": "sale of real estate assets", "ppRespCode": "S", "ResponseStart": "2018.01.01", "ResponseEnd": "" },
+      { "ResponseCode": 15, "ResponseDescription": "Capital gains", "ResponseDescriptionNorm": "investment returns", "ppRespCode": "C", "ResponseStart": "2018.01.01", "ResponseEnd": "" },
+      { "ResponseCode": 19, "ResponseDescription": "Other source", "ResponseDescriptionNorm": "other", "ppRespCode": "O", "ResponseStart": "2016.07.17", "ResponseEnd": "" }
+    ],
+    "QuestionSet": [
+      { "QuestionCode": "2001", "QuestionLabel": "Origin of funds deposited", "QuestionLabelNorm": "source of funds origin", "pp_code_question": 610 }
+    ]
+  },
+  {
+    "count": 1,
+    "ResponseType": "SINGLE",
+    "ResponseOptions": [
+      { "ResponseCode": 1, "ResponseDescription": "< 5,000", "ppRespCode": "A", "ResponseStart": "2016.07.17", "ResponseEnd": "" },
+      { "ResponseCode": 2, "ResponseDescription": "5,000 – 25,000", "ppRespCode": "B", "ResponseStart": "2016.07.17", "ResponseEnd": "" },
+      { "ResponseCode": 3, "ResponseDescription": "25,000 – 100,000", "ppRespCode": "C", "ResponseStart": "2016.07.17", "ResponseEnd": "" },
+      { "ResponseCode": 4, "ResponseDescription": "100,000 – 500,000", "ppRespCode": "D", "ResponseStart": "2016.07.17", "ResponseEnd": "" },
+      { "ResponseCode": 5, "ResponseDescription": "> 500,000", "ppRespCode": "E", "ResponseStart": "2016.07.17", "ResponseEnd": "" }
+    ],
+    "QuestionSet": [
+      { "QuestionCode": "2010", "QuestionLabel": "Planned monthly inflows", "QuestionLabelNorm": "expected monthly account turnover inflows", "pp_code_question": 620 },
+      { "QuestionCode": "2011", "QuestionLabel": "Planned monthly outflows", "QuestionLabelNorm": "expected monthly account turnover outflows", "pp_code_question": 621 }
+    ]
+  },
+  {
+    "count": 1,
+    "ResponseType": "MULTI",
+    "ResponseOptions": [
+      { "ResponseCode": 31, "ResponseDescription": "Deposits and savings", "ResponseDescriptionNorm": "savings deposits", "ppRespCode": "31" },
+      { "ResponseCode": 32, "ResponseDescription": "Current account transactions", "ResponseDescriptionNorm": "daily transactions payments", "ppRespCode": "32" },
+      { "ResponseCode": 33, "ResponseDescription": "Lending", "ResponseDescriptionNorm": "loans credit", "ppRespCode": "33" },
+      { "ResponseCode": 34, "ResponseDescription": "Investment products", "ResponseDescriptionNorm": "investment", "ppRespCode": "34" },
+      { "ResponseCode": 35, "ResponseDescription": "Trade finance", "ResponseDescriptionNorm": "company settlements trade", "ppRespCode": "35" },
+      { "ResponseCode": 36, "ResponseDescription": "Currency operations", "ResponseDescriptionNorm": "currency exchange", "ppRespCode": "36", "ResponseStart": "2016.07.17", "ResponseEnd": "2022.12.31" }
+    ],
+    "QuestionSet": [
+      { "QuestionCode": "2020", "QuestionLabel": "Intended use of products", "QuestionLabelNorm": "purpose of account relationship", "pp_code_question": 630 }
+    ]
+  },
+  {
+    "count": 1,
+    "ResponseType": "SINGLE",
+    "ResponseOptions": [
+      { "ResponseCode": 1, "ResponseDescription": "Domestic only", "ResponseDescriptionNorm": "domestic poland" },
+      { "ResponseCode": 2, "ResponseDescription": "European Economic Area", "ResponseDescriptionNorm": "european union" },
+      { "ResponseCode": 3, "ResponseDescription": "Outside EEA – low risk", "ResponseDescriptionNorm": "third country low risk" },
+      { "ResponseCode": 4, "ResponseDescription": "Outside EEA – high risk", "ResponseDescriptionNorm": "high risk jurisdiction" }
+    ],
+    "QuestionSet": [
+      { "QuestionCode": "2040", "QuestionLabel": "Geographic exposure", "QuestionLabelNorm": "geographic scope countries of activity", "pp_code_question": 640 }
+    ]
+  },
+  {
+    "count": 1,
+    "ResponseType": "SINGLE",
+    "ResponseOptions": [
+      { "ResponseCode": 1, "ResponseDescription": "Employee", "ResponseDescriptionNorm": "employee" },
+      { "ResponseCode": 2, "ResponseDescription": "Business owner", "ResponseDescriptionNorm": "entrepreneur self employed" },
+      { "ResponseCode": 3, "ResponseDescription": "Pensioner", "ResponseDescriptionNorm": "pensioner retired" },
+      { "ResponseCode": 4, "ResponseDescription": "Not economically active", "ResponseDescriptionNorm": "student unemployed not working" }
+    ],
+    "QuestionSet": [
+      { "QuestionCode": "2070", "QuestionLabel": "Professional status", "QuestionLabelNorm": "professional employment status", "pp_code_question": 670 }
+    ]
+  },
+  {
+    "count": 1,
+    "ResponseType": "SINGLE",
+    "ResponseOptions": [
+      { "ResponseCode": 1, "ResponseDescription": "Individual business", "ResponseDescriptionNorm": "sole trader" },
+      { "ResponseCode": 2, "ResponseDescription": "Capital company", "ResponseDescriptionNorm": "limited liability company joint stock company" },
+      { "ResponseCode": 3, "ResponseDescription": "Personal partnership", "ResponseDescriptionNorm": "partnership" },
+      { "ResponseCode": 4, "ResponseDescription": "Non-profit organisation", "ResponseDescriptionNorm": "foundation association cooperative" }
+    ],
+    "QuestionSet": [
+      { "QuestionCode": "2080", "QuestionLabel": "Company type", "QuestionLabelNorm": "entity legal form", "pp_code_question": 680 }
+    ]
+  },
+  {
+    "count": 3,
+    "ResponseType": "TEXT",
+    "ResponseOptions": [],
+    "QuestionSet": [
+      { "QuestionCode": "3001", "QuestionLabel": "Workplace", "QuestionLabelNorm": "employer name", "pp_code_question": 701 },
+      { "QuestionCode": "3002", "QuestionLabel": "Position held", "QuestionLabelNorm": "occupation job title", "pp_code_question": 702 },
+      { "QuestionCode": "3003", "QuestionLabel": "Industry / PKD activity", "QuestionLabelNorm": "business activity description industry", "pp_code_question": 703 }
+    ]
+  },
+  {
+    "count": 1,
+    "ResponseType": "CALLBACK",
+    "ResponseOptions": [],
+    "QuestionSet": [
+      { "QuestionCode": "4001", "QuestionLabel": "UBO register lookup", "QuestionLabelNorm": "ultimate beneficial owner", "pp_code_question": 801 }
+    ]
+  }
+]
