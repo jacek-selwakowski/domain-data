@@ -1,0 +1,50 @@
+/* Survey Domain Studio — base styles */
+
+html { scroll-behavior: smooth; }
+body { -webkit-font-smoothing: antialiased; }
+
+/* Sidebar nav buttons */
+.navbtn { color: #b9bec7; }
+.navbtn:hover { color: #fff; background: rgba(255,255,255,0.06); }
+.navbtn.active { color: #fff; background: rgba(99,102,241,0.18); box-shadow: inset 0 0 0 1px rgba(99,102,241,0.35); }
+.navbtn.active svg { color: #a5b4fc; }
+.navbtn svg { width: 16px; height: 16px; }
+
+/* Scrollbars */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #d6d9de; border-radius: 8px; border: 2px solid transparent; background-clip: content-box; }
+::-webkit-scrollbar-thumb:hover { background: #b9bec7; background-clip: content-box; border: 2px solid transparent; }
+
+/* Mobile top bar */
+#mobileTitle { color: #fff; }
+
+/* Icons are decoration only — never intercept pointer events over inputs */
+svg.lucide { pointer-events: none; }
+
+/* Dictionary sub-tabs */
+.dicttab { position: relative; padding: 10px 2px; font-size: 13px; font-weight: 500; color: #6b7280; cursor: pointer; border-bottom: 2px solid transparent; transition: color .15s; white-space: nowrap; }
+.dicttab:hover { color: #111827; }
+.dicttab.active { color: #4338ca; border-bottom-color: #4338ca; font-weight: 600; }
+.dicttab .cnt { margin-left: 6px; font-size: 11px; color: #9ca3af; font-weight: 600; }
+.dicttab.active .cnt { color: #6366f1; }
+
+/* Code blocks */
+pre.jsonview { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+
+/* Editor overlay transitions */
+#editorOverlay { transition: opacity .18s ease; }
+#editorOverlay .absolute.right-0 { transition: transform .22s ease; }
+
+/* Toast */
+.toast { animation: toast-in .22s ease; }
+@keyframes toast-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+/* Subtle panel headers */
+.panelhead { background: #F9FAFB; border-bottom: 1px solid #E5E7EB; }
+
+/* Table rows in viewers */
+.detailrow:nth-child(odd) { background: #FAFBFC; }
+
+/* Focus ring reset for selects */
+select.input { appearance: none; background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 10px center; padding-right: 30px; }

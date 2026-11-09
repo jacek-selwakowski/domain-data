@@ -1,0 +1,195 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ca.com/schemas/domain.schema.json",
+  "title": "System Survey Domain Model. Typed question and response set dictionary.",
+  "description": "Questions are grouped by their possible answers. Text responded questions have assigned empty response set.",
+  "$defs": {
+    "SurveyType": {
+      "type": "string",
+      "enum": [
+        "RETAIL",
+        "PZK",
+        "CORPO",
+        "SME",
+        "AGRO",
+        "ACCOUNT"
+      ]
+    },
+    "ProcessContext": {
+      "type": "string",
+      "enum": [
+        "ONBOARDING",
+        "KYC",
+        "EDD",
+        "CALLBACK",
+        "BACKOFFICE",
+        "COMPLIANCE",
+        "AUDIT",
+        "SCREENING",
+        "PROFILING",
+        "ASSESSMENT",
+        "TECHNICAL",
+        "INVESTIGATION"
+      ]
+    },
+    "Context": {
+      "type": "string",
+      "enum": [
+        "KYC",
+        "EDD",
+        "CALLBACK",
+        "PERSONAL"
+      ]
+    }
+  },
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "ResponseType": {
+        "type": "string",
+        "enum": [
+          "SINGLE",
+          "TEXT",
+          "YES_NO",
+          "MULTI",
+          "CALLBACK",
+          "DICTIONARY_INCOMPLETE",
+          "DICTIONARY",
+          "PERSON_KYC"
+        ],
+        "description": "dictionary: SINGLE or MULTI option or YES_NO, YES_NO, free TEXT or REF"
+      },
+      "ResponseOptions": {
+        "type": "array",
+        "description": "Possible answers for the questions in this set. Empty for free-text questions.",
+        "items": {
+          "type": "object",
+          "properties": {
+            "ResponseCode": {
+              "type": "string",
+              "description": "Answer code. PS: string. RDS: integer."
+            },
+            "ResponseDescription": {
+              "type": "string",
+              "description": "Human-readable meaning of the answer code."
+            },
+            "ResponseDescriptionNorm": {
+              "type": "string",
+              "description": "Embedding-oriented normalized meaning of the answer code. The original ResponseDescription remains authoritative."
+            },
+            "ppRespCode": {
+              "type": [
+                "string",
+                "integer"
+              ],
+              "description": "RDS only: legacy pp answer code."
+            },
+            "ResponseStart": {
+              "type": "string",
+              "description": "RDS only: validity start date, e.g. '2016.07.17'."
+            },
+            "ResponseEnd": {
+              "type": "string",
+              "description": "RDS only: validity end date; empty when still valid."
+            }
+          },
+          "required": [
+            "ResponseCode",
+            "ResponseDescription"
+          ],
+          "additionalProperties": true
+        }
+      },
+      "QuestionSet": {
+        "type": "array",
+        "minItems": 1,
+        "description": "Questions served with these response options.",
+        "items": {
+          "type": "object",
+          "properties": {
+            "QuestionCode": {
+              "type": "string",
+              "description": "Question code. PS: string, e.g. 'KYC_PZK_003'. RDS: integer."
+            },
+            "QuestionLabel": {
+              "type": "string",
+              "description": "Human-readable question text."
+            },
+            "QuestionLabelNorm": {
+              "type": "string",
+              "description": "Embedding-oriented normalized question subject. The original QuestionLabel remains authoritative."
+            },
+            "SurveyType":  {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/SurveyType"
+              },
+              "description": "PS only: business segment."
+            },
+            "Context": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/Context"
+              },
+              "description": "appears in context"
+            },
+            "PersonalContext": {
+              "type": "string",
+              "description": "PS only: 'true' or 'false'."
+            },
+            "SurveyCode": {
+              "type": "string",
+              "description": "PS only: survey code, e.g. KYC_PZK, KYC_SOF."
+            },
+            "Notes": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "PS only: usage notes for the question."
+            },
+            "QuestionDescription": {
+              "type": "array",
+              "description": "PS only: keyed description entries, e.g. [Doradca], [Infotip_PL].",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "key",
+                  "value"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "pp_code_question": {
+              "type": [
+                "string",
+                "integer"
+              ],
+              "description": "RDS only: legacy pp question code."
+            }
+          },
+          "required": [
+            "QuestionCode",
+            "QuestionLabel"
+          ],
+          "additionalProperties": true
+        }
+      }
+    },
+    "required": [
+      "ResponseOptions",
+      "QuestionSet"
+    ],
+    "additionalProperties": true
+  },
+  "minItems": 1
+}
